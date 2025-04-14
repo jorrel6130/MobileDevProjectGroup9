@@ -20,7 +20,7 @@ class PersistenceController {
         
         createSampleDataIfNeeded()
     }
-    //function to create sample data if the persistent store is empty
+
     private func createSampleDataIfNeeded() {
         let context = container.viewContext
         
@@ -32,7 +32,6 @@ class PersistenceController {
             print("Error checking for existing data: \(error)")
             return
         }
-        //Include sample categories
         let foodCategory = ShoppingCategory(context: context)
         foodCategory.id = UUID()
         foodCategory.name = "Food"

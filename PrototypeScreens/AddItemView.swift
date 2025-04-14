@@ -128,7 +128,7 @@ struct AddItemView: View {
                         .padding(.horizontal)
                 }
                 .disabled(!isFormValid)
-                // summary section
+            
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Cost Before Taxes: \(String(format: "$%.2f", costBeforeTaxes))")
                     Text("Cost After Taxes: \(String(format: "$%.2f", costAfterTaxes))")
