@@ -1,12 +1,12 @@
 import CoreData
 
-struct PersistenceController {
+class PersistenceController {
     static let shared = PersistenceController()
     
     let container: NSPersistentContainer
     
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "ShoppingList")
+        container = NSPersistentContainer(name: "Model")
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
@@ -14,24 +14,25 @@ struct PersistenceController {
         
         container.loadPersistentStores { description, error in
             if let error = error {
-                fatalError("Error loading Core Data stores: \(error.localizedDescription)")
+                print("Core Data failed to load: \(error.localizedDescription)")
             }
         }
+        
+        createSampleDataIfNeeded()
     }
     
-    func createSampleData() {
+    private func createSampleDataIfNeeded() {
         let context = container.viewContext
         
-        // Check if we already have data
         let fetchRequest: NSFetchRequest<ShoppingCategory> = ShoppingCategory.fetchRequest()
         do {
             let count = try context.count(for: fetchRequest)
             if count > 0 { return }
         } catch {
             print("Error checking for existing data: \(error)")
+            return
         }
         
-        // Create categories and items
         let foodCategory = ShoppingCategory(context: context)
         foodCategory.id = UUID()
         foodCategory.name = "Food"
@@ -50,68 +51,21 @@ struct PersistenceController {
         eggs.quantity = 3
         eggs.category = foodCategory
         
-        let bacon = ShoppingItem(context: context)
-        bacon.id = UUID()
-        bacon.name = "Bacon"
-        bacon.price = 2.00
-        bacon.quantity = 2
-        bacon.category = foodCategory
-        
-        let pasta = ShoppingItem(context: context)
-        pasta.id = UUID()
-        pasta.name = "Pasta"
-        pasta.price = 3.00
-        pasta.quantity = 1
-        pasta.category = foodCategory
-        
-        let bread = ShoppingItem(context: context)
-        bread.id = UUID()
-        bread.name = "Bread"
-        bread.price = 2.00
-        bread.quantity = 4
-        bread.category = foodCategory
-        
-        // Medication category
-        let medCategory = ShoppingCategory(context: context)
-        medCategory.id = UUID()
-        medCategory.name = "Medication"
+        let medication = ShoppingCategory(context: context)
+        medication.id = UUID()
+        medication.name = "Medication"
         
         let medItem = ShoppingItem(context: context)
         medItem.id = UUID()
         medItem.name = "Medication Stuff"
         medItem.price = 10.00
         medItem.quantity = 1
-        medItem.category = medCategory
+        medItem.category = medication
         
-        // Cleaning category
-        let cleaningCategory = ShoppingCategory(context: context)
-        cleaningCategory.id = UUID()
-        cleaningCategory.name = "Cleaning Products"
-        
-        let cleaningItem = ShoppingItem(context: context)
-        cleaningItem.id = UUID()
-        cleaningItem.name = "Cleaning Stuff"
-        cleaningItem.price = 4.30
-        cleaningItem.quantity = 1
-        cleaningItem.category = cleaningCategory
-        
-        // Misc category
-        let miscCategory = ShoppingCategory(context: context)
-        miscCategory.id = UUID()
-        miscCategory.name = "Misc"
-        
-        let miscItem = ShoppingItem(context: context)
-        miscItem.id = UUID()
-        miscItem.name = "Misc Stuff"
-        miscItem.price = 8.30
-        miscItem.quantity = 1
-        miscItem.category = miscCategory
-        
-        // Save changes
         do {
             try context.save()
         } catch {
-            print("Error saving context: \(error)")
+            print("Error creating sample data: \(error)")
         }
     }
 }
