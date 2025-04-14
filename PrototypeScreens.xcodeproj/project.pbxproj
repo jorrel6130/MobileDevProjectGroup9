@@ -12,7 +12,6 @@
 		52CB9ABB2D8C9D9A00DC4CA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CB9ABA2D8C9D9A00DC4CA9 /* Assets.xcassets */; };
 		52CB9ABE2D8C9D9A00DC4CA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CB9ABD2D8C9D9A00DC4CA9 /* Preview Assets.xcassets */; };
 		52CB9ACB2D8C9EF700DC4CA9 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB9ACA2D8C9EF700DC4CA9 /* AddItemView.swift */; };
-		52CB9ACF2D8CA66F00DC4CA9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CB9ACE2D8CA66F00DC4CA9 /* Model.swift */; };
 		52DE8F4C2DAD947700FDB4DA /* PrototypeScreens.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52DE8F4A2DAD947700FDB4DA /* PrototypeScreens.xcdatamodeld */; };
 		52DE8F4E2DADA52900FDB4DA /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DE8F4D2DADA52900FDB4DA /* DataController.swift */; };
 /* End PBXBuildFile section */
@@ -24,7 +23,6 @@
 		52CB9ABA2D8C9D9A00DC4CA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52CB9ABD2D8C9D9A00DC4CA9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52CB9ACA2D8C9EF700DC4CA9 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
-		52CB9ACE2D8CA66F00DC4CA9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		52DE8F4B2DAD947700FDB4DA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		52DE8F4D2DADA52900FDB4DA /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,7 +59,6 @@
 			children = (
 				52CB9AB62D8C9D9700DC4CA9 /* PrototypeScreensApp.swift */,
 				52CB9AB82D8C9D9700DC4CA9 /* ContentView.swift */,
-				52CB9ACE2D8CA66F00DC4CA9 /* Model.swift */,
 				52CB9ACA2D8C9EF700DC4CA9 /* AddItemView.swift */,
 				52DE8F4A2DAD947700FDB4DA /* PrototypeScreens.xcdatamodeld */,
 				52CB9ABA2D8C9D9A00DC4CA9 /* Assets.xcassets */,
@@ -149,7 +146,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CB9ACF2D8CA66F00DC4CA9 /* Model.swift in Sources */,
 				52DE8F4E2DADA52900FDB4DA /* DataController.swift in Sources */,
 				52CB9AB92D8C9D9700DC4CA9 /* ContentView.swift in Sources */,
 				52DE8F4C2DAD947700FDB4DA /* PrototypeScreens.xcdatamodeld in Sources */,
