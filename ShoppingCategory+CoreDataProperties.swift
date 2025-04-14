@@ -13,7 +13,7 @@ extension ShoppingCategory {
     @NSManaged public var items: NSSet?
 
 }
-typealias CategorySet = NSSet
+
 // MARK: Generated accessors for items
 extension ShoppingCategory {
 
