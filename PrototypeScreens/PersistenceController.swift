@@ -32,7 +32,7 @@ class PersistenceController {
             print("Error checking for existing data: \(error)")
             return
         }
-        
+        //Include sample categories
         let foodCategory = ShoppingCategory(context: context)
         foodCategory.id = UUID()
         foodCategory.name = "Food"
