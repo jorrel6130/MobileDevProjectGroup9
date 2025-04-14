@@ -2,12 +2,16 @@ import SwiftUI
 
 @main
 struct PrototypeScreensApp: App {
-    @StateObject private var dataController = DataController() // Creates live state of data controller
+    
+    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
+    let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
