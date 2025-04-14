@@ -20,7 +20,7 @@ class PersistenceController {
         
         createSampleDataIfNeeded()
     }
-    
+    //function to create sample data if the persistent store is empty
     private func createSampleDataIfNeeded() {
         let context = container.viewContext
         
